@@ -2,12 +2,12 @@ using System;
 
 namespace MatrixCalculator
 {
-    interface Comparable
-    { 
-        int  CompareTo(Comparable other); 
+    interface IComparable
+    {
+        int CompareTo(object obj);
     }
 
-    class SquareMatrix
+    class SquareMatrix : IComparable
     {
         private int[,] matrix;
         private int size;
