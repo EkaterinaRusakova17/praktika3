@@ -32,11 +32,11 @@ namespace MatrixCalculator
             if (random)
             {
                 Random rnd = new Random();
-                for (int RowIndex = 0; RowIndex < size; ++RowIndex)
+                for (int index = 0; index < size; ++index)
                 {
-                    for (int ColumnIndex = 0; ColumnIndex < size; ++ColumnIndex)
+                    for (int secondIndex = 0; secondIndex < size; ++secondIndex)
                     {
-                        matrix[RowIndex, ColumnIndex] = rnd.Next(10);
+                        matrix[index, secondIndex] = rnd.Next(10);
                     }
                 }
             }
@@ -47,13 +47,13 @@ namespace MatrixCalculator
             get { return size; }
         }
 
-        public int this[int RowIndex, int ColumnIndex]
+        public int this[int index, int secondIndex]
         {
             get
             {
-                if (RowIndex >= 0 && RowIndex < size && ColumnIndex >= 0 && ColumnIndex < size)
+                if (index >= 0 && index < size && secondIndex >= 0 && secondIndex < size)
                 {
-                    return matrix[RowIndex, ColumnIndex];
+                    return matrix[index, secondIndex];
                 }
                 else
                 {
@@ -62,9 +62,9 @@ namespace MatrixCalculator
             }
             set
             {
-                if (RowIndex >= 0 && RowIndex < size && ColumnIndex >= 0 && ColumnIndex < size)
+                if (index >= 0 && index < size && secondIndex >= 0 && secondIndex < size)
                 {
-                    matrix[RowIndex, ColumnIndex] = value;
+                    matrix[index, secondIndex] = value;
                 }
             }
         }
@@ -78,11 +78,11 @@ namespace MatrixCalculator
 
             SquareMatrix result = new SquareMatrix(matrix1.Size);
 
-            for (int RowIndex = 0; RowIndex < matrix1.Size; ++RowIndex)
+            for (int index = 0; index < matrix1.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix1.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix1.Size; ++secondIndex)
                 {
-                    result[RowIndex, ColumnIndex] = matrix1[RowIndex, ColumnIndex] + matrix2[RowIndex, ColumnIndex];
+                    result[index, secondIndex] = matrix1[index, secondIndex] + matrix2[index, secondIndex];
                 }
             }
 
@@ -98,13 +98,13 @@ namespace MatrixCalculator
 
             SquareMatrix result = new SquareMatrix(matrix1.Size);
 
-            for (int RowIndex = 0; RowIndex < matrix1.Size; ++RowIndex)
+            for (int index = 0; index < matrix1.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix1.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix1.Size; ++secondIndex)
                 {
                     for (int thirdIndex = 0; thirdIndex < matrix1.Size; ++thirdIndex)
                     {
-                        result[RowIndex, ColumnIndex] += matrix1[RowIndex, thirdIndex] * matrix2[thirdIndex, ColumnIndex];
+                        result[index, secondIndex] += matrix1[index, thirdIndex] * matrix2[thirdIndex, secondIndex];
                     }
                 }
             }
@@ -122,12 +122,12 @@ namespace MatrixCalculator
             int sum1 = 0;
             int sum2 = 0;
 
-            for (int RowIndex = 0; RowIndex < matrix1.Size; ++RowIndex)
+            for (int index = 0; index < matrix1.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix1.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix1.Size; ++secondIndex)
                 {
-                    sum1 += matrix1[RowIndex, ColumnIndex];
-                    sum2 += matrix2[RowIndex, ColumnIndex];
+                    sum1 += matrix1[index, secondIndex];
+                    sum2 += matrix2[index, secondIndex];
                 }
             }
 
@@ -144,12 +144,12 @@ namespace MatrixCalculator
             int sum1 = 0;
             int sum2 = 0;
 
-            for (int RowIndex = 0; RowIndex < matrix1.Size; ++RowIndex)
+            for (int index = 0; index < matrix1.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix1.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix1.Size; ++secondIndex)
                 {
-                    sum1 += matrix1[RowIndex, ColumnIndex];
-                    sum2 += matrix2[RowIndex, ColumnIndex];
+                    sum1 += matrix1[index, secondIndex];
+                    sum2 += matrix2[index, secondIndex];
                 }
             }
 
@@ -166,12 +166,12 @@ namespace MatrixCalculator
             int sum1 = 0;
             int sum2 = 0;
 
-            for (int RowIndex = 0; RowIndex < matrix1.Size; ++RowIndex)
+            for (int index = 0; index < matrix1.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix1.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix1.Size; ++secondIndex)
                 {
-                    sum1 += matrix1[RowIndex, ColumnIndex];
-                    sum2 += matrix2[RowIndex, ColumnIndex];
+                    sum1 += matrix1[index, secondIndex];
+                    sum2 += matrix2[index, secondIndex];
                 }
             }
 
@@ -188,19 +188,19 @@ namespace MatrixCalculator
             int sum1 = 0;
             int sum2 = 0;
 
-            for (int RowIndex = 0; RowIndex < matrix1.Size; ++RowIndex)
+            for (int index = 0; index < matrix1.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix1.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix1.Size; ++secondIndex)
                 {
-                    sum1 += matrix1[RowIndex, ColumnIndex];
-                    sum2 += matrix2[RowIndex, ColumnIndex];
+                    sum1 += matrix1[index, secondIndex];
+                    sum2 += matrix2[index, secondIndex];
                 }
             }
 
             return sum1 <= sum2;
         }
 
-        public static bool operator == (SquareMatrix matrix1, SquareMatrix matrix2)
+        public static bool operator ==(SquareMatrix matrix1, SquareMatrix matrix2)
         {
             if (matrix1 is null || matrix2 is null)
             {
@@ -214,11 +214,11 @@ namespace MatrixCalculator
 
             bool equals = true;
 
-            for (int RowIndex = 0; RowIndex < matrix1.Size; ++RowIndex)
+            for (int index = 0; index < matrix1.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix1.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix1.Size; ++secondIndex)
                 {
-                    if (matrix1[RowIndex, ColumnIndex] != matrix2[RowIndex, ColumnIndex])
+                    if (matrix1[index, secondIndex] != matrix2[index, secondIndex])
                     {
                         equals = false;
                         break;
@@ -242,11 +242,11 @@ namespace MatrixCalculator
         public static explicit operator int[,](SquareMatrix matrix)
         {
             int[,] result = new int[matrix.Size, matrix.Size];
-            for (int RowIndex = 0; RowIndex < matrix.Size; ++RowIndex)
+            for (int index = 0; index < matrix.Size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrix.Size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < matrix.Size; ++secondIndex)
                 {
-                    result[RowIndex, ColumnIndex] = matrix[RowIndex, ColumnIndex];
+                    result[index, secondIndex] = matrix[index, secondIndex];
                 }
             }
             return result;
@@ -255,11 +255,11 @@ namespace MatrixCalculator
         public override string ToString()
         {
             string result = "";
-            for (int RowIndex = 0; RowIndex < size; ++RowIndex)
+            for (int index = 0; index < size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < size; ++secondIndex)
                 {
-                    result += matrix[RowIndex, ColumnIndex].ToString() + " ";
+                    result += matrix[index, secondIndex].ToString() + " ";
                 }
                 result += "\n";
             }
@@ -295,11 +295,11 @@ namespace MatrixCalculator
         public override int GetHashCode()
         {
             int hash = 17;
-            for (int RowIndex = 0; RowIndex < size; ++RowIndex)
+            for (int index = 0; index < size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < size; ++secondIndex)
                 {
-                    hash = hash * 23 + matrix[RowIndex, ColumnIndex].GetHashCode();
+                    hash = hash * 23 + matrix[index, secondIndex].GetHashCode();
                 }
             }
             return hash;
@@ -318,23 +318,23 @@ namespace MatrixCalculator
             }
             else
             {
-                for (int RowIndex = 0; RowIndex < size; ++RowIndex)
+                for (int index = 0; index < size; ++index)
                 {
                     int[,] subMatrix = new int[size - 1, size - 1];
-                    for (int ColumnIndex = 1; ColumnIndex < size; ++ColumnIndex)
+                    for (int secondIndex = 1; secondIndex < size; ++secondIndex)
                     {
                         int thirdIndex = 0;
                         for (int fourthIndex = 0; fourthIndex < size; ++fourthIndex)
                         {
-                            if (fourthIndex == RowIndex)
+                            if (fourthIndex == index)
                             {
                                 continue;
                             }
-                            subMatrix[ColumnIndex - 1, thirdIndex] = matrix[ColumnIndex, fourthIndex];
+                            subMatrix[secondIndex - 1, thirdIndex] = matrix[secondIndex, fourthIndex];
                             ++thirdIndex;
                         }
                     }
-                    determinant += Math.Pow(-1, RowIndex) * matrix[0, RowIndex] * new SquareMatrix(subMatrix).Determinant();
+                    determinant += Math.Pow(-1, index) * matrix[0, index] * new SquareMatrix(subMatrix).Determinant();
                 }
             }
             return determinant;
@@ -350,22 +350,22 @@ namespace MatrixCalculator
 
             double[,] inverseMatrix = new double[size, size];
 
-            for (int RowIndex = 0; RowIndex < size; ++RowIndex)
+            for (int index = 0; index < size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < size; ++secondIndex)
                 {
                     int[,] subMatrix = new int[size - 1, size - 1];
                     int fifeth = 0;
                     for (int thirdIndex = 0; thirdIndex < size; ++thirdIndex)
                     {
                         int sixth = 0;
-                        if (thirdIndex == RowIndex)
+                        if (thirdIndex == index)
                         {
                             continue;
                         }
                         for (int fourthIndex = 0; fourthIndex < size; ++fourthIndex)
                         {
-                            if (fourthIndex == ColumnIndex)
+                            if (fourthIndex == secondIndex)
                             {
                                 continue;
                             }
@@ -374,16 +374,16 @@ namespace MatrixCalculator
                         }
                         ++fifeth;
                     }
-                    inverseMatrix[ColumnIndex, RowIndex] = Math.Pow(-1, RowIndex + ColumnIndex) * new SquareMatrix(subMatrix).Determinant();
+                    inverseMatrix[secondIndex, index] = Math.Pow(-1, index + secondIndex) * new SquareMatrix(subMatrix).Determinant();
                 }
             }
 
             SquareMatrix inverse = new SquareMatrix(size);
-            for (int RowIndex = 0; RowIndex < size; ++RowIndex)
+            for (int index = 0; index < size; ++index)
             {
-                for (int ColumnIndex = 0; ColumnIndex < size; ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < size; ++secondIndex)
                 {
-                    inverse[RowIndex, ColumnIndex] = (int)(inverseMatrix[RowIndex, ColumnIndex] / determinant);
+                    inverse[index, secondIndex] = (int)(inverseMatrix[index, secondIndex] / determinant);
                 }
             }
 
@@ -392,84 +392,95 @@ namespace MatrixCalculator
 
         public SquareMatrix DeepClone()
         {
-            return (SquareMatrix)this.MemberwiseClone();
-        }
-    }
+            SquareMatrix clonedMatrix = new SquareMatrix(size);
 
-    class MatrixCalculator
-    {
-        static void Main(string[] args)
-        {
-            SquareMatrix matrix1 = new SquareMatrix(3, random: true);
-            SquareMatrix matrix2 = (SquareMatrix)matrix1.DeepClone();
-
-            Console.WriteLine("Матрица 1:");
-            Console.WriteLine(matrix1.ToString());
-
-            Console.WriteLine("Матрица 2:");
-            Console.WriteLine(matrix2.ToString());
-
-            SquareMatrix sum = matrix1 + matrix2;
-            Console.WriteLine("Сумма:");
-            Console.WriteLine(sum.ToString());
-
-            SquareMatrix product = matrix1 * matrix2;
-            Console.WriteLine("Произведение:");
-            Console.WriteLine(product.ToString());
-
-            bool greaterThan = matrix1 > matrix2;
-            Console.WriteLine("Матрица 1 > Матрица 2: " + greaterThan);
-
-            bool lessThan = matrix1 < matrix2;
-            Console.WriteLine("Матрица 1 < Матрица 2: " + lessThan);
-
-            bool greaterOrEqual = matrix1 >= matrix2;
-            Console.WriteLine("Матрица 1 >= Матрица 2: " + greaterOrEqual);
-
-            bool lessOrEqual = matrix1 <= matrix2;
-            Console.WriteLine("Матрица 1 <= Матрица 2: " + lessOrEqual);
-
-            bool equal = matrix1 == matrix2;
-            Console.WriteLine("Матрица 1 == Матрица 2: " + equal);
-
-            bool notEqual = matrix1 != matrix2;
-            Console.WriteLine("Матрица 1 != Матрица 2: " + notEqual);
-
-            int[,] matrixArray = (int[,])matrix1;
-            Console.WriteLine("Матрица 1 в виде массива:");
-            for (int RowIndex = 0; RowIndex < matrixArray.GetLength(0); ++RowIndex)
+            for (int index = 0; index < size; index++)
             {
-                for (int ColumnIndex = 0; ColumnIndex < matrixArray.GetLength(1); ++ColumnIndex)
+                for (int secondIndex = 0; secondIndex < size; secondIndex++)
                 {
-                    Console.Write(matrixArray[RowIndex, ColumnIndex] + " ");
+                    clonedMatrix[index, secondIndex] = this[index, secondIndex];
                 }
-                Console.WriteLine();
             }
 
-            SquareMatrix matrix3 = (SquareMatrix)matrixArray;
-            Console.WriteLine("Матрица 3:");
-            Console.WriteLine(matrix3.ToString());
+            return clonedMatrix;
+        }
 
-            Console.WriteLine("Matrix 1 CompareTo Matrix 2: " + matrix1.CompareTo(matrix2));
+        class MatrixCalculator
+        {
+            static void Main(string[] args)
+            {
+                //Если не указать параметр, то матрица будет заполнена нулями
+                SquareMatrix matrix1 = new SquareMatrix(3, random: true);
+                SquareMatrix matrix2 = (SquareMatrix)matrix1.DeepClone();
 
-            bool equals = matrix1.Equals(matrix2);
-            Console.WriteLine("Matrix 1 Equals Matrix 2: " + equals);
+                Console.WriteLine("Матрица 1:");
+                Console.WriteLine(matrix1.ToString());
 
-            int hashCode = matrix1.GetHashCode();
-            Console.WriteLine("Matrix 1 HashCode: " + hashCode);
+                Console.WriteLine("Матрица 2:");
+                Console.WriteLine(matrix2.ToString());
 
-            double determinant = matrix1.Determinant();
-            Console.WriteLine("Matrix 1 Determinant: " + determinant);
+                SquareMatrix sum = matrix1 + matrix2;
+                Console.WriteLine("Сумма:");
+                Console.WriteLine(sum.ToString());
 
-            SquareMatrix inverse = matrix1.Inverse();
-            Console.WriteLine("Matrix 1 Inverse:");
-            Console.WriteLine(inverse.ToString());
+                SquareMatrix product = matrix1 * matrix2;
+                Console.WriteLine("Произведение:");
+                Console.WriteLine(product.ToString());
 
-            SquareMatrix deepClone = matrix1.DeepClone();
-            Console.WriteLine("Matrix 1 DeepClone:");
-            Console.WriteLine(deepClone.ToString());
+                bool greaterThan = matrix1 > matrix2;
+                Console.WriteLine("Матрица 1 > Матрица 2: " + greaterThan);
 
-            Console.ReadKey();
+                bool lessThan = matrix1 < matrix2;
+                Console.WriteLine("Матрица 1 < Матрица 2: " + lessThan);
+
+                bool greaterOrEqual = matrix1 >= matrix2;
+                Console.WriteLine("Матрица 1 >= Матрица 2: " + greaterOrEqual);
+
+                bool lessOrEqual = matrix1 <= matrix2;
+                Console.WriteLine("Матрица 1 <= Матрица 2: " + lessOrEqual);
+
+                bool equal = matrix1 == matrix2;
+                Console.WriteLine("Матрица 1 == Матрица 2: " + equal);
+
+                bool notEqual = matrix1 != matrix2;
+                Console.WriteLine("Матрица 1 != Матрица 2: " + notEqual);
+
+                int[,] matrixArray = (int[,])matrix1;
+                Console.WriteLine("Матрица 1 в виде массива:");
+                for (int index = 0; index < matrixArray.GetLength(0); ++index)
+                {
+                    for (int secondIndex = 0; secondIndex < matrixArray.GetLength(1); ++secondIndex)
+                    {
+                        Console.Write(matrixArray[index, secondIndex] + " ");
+                    }
+                    Console.WriteLine();
+                }
+
+                SquareMatrix matrix3 = (SquareMatrix)matrixArray;
+                Console.WriteLine("Матрица 3:");
+                Console.WriteLine(matrix3.ToString());
+
+                Console.WriteLine("Matrix 1 CompareTo Matrix 2: " + matrix1.CompareTo(matrix2));
+
+                bool equals = matrix1.Equals(matrix2);
+                Console.WriteLine("Matrix 1 Equals Matrix 2: " + equals);
+
+                int hashCode = matrix1.GetHashCode();
+                Console.WriteLine("Matrix 1 HashCode: " + hashCode);
+
+                double determinant = matrix1.Determinant();
+                Console.WriteLine("Matrix 1 Determinant: " + determinant);
+
+                SquareMatrix inverse = matrix1.Inverse();
+                Console.WriteLine("Matrix 1 Inverse:");
+                Console.WriteLine(inverse.ToString());
+
+                SquareMatrix deepClone = matrix1.DeepClone();
+                Console.WriteLine("Matrix 1 DeepClone:");
+                Console.WriteLine(deepClone.ToString());
+
+                Console.ReadKey();
+            }
         }
     }
 }
